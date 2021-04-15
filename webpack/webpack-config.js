@@ -16,7 +16,26 @@ module.exports = {
             loader: "babel-loader",
           }
         ]
-      }
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: { modules: true }
+          },
+          'sass-loader'
+        ]
+      },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        type: 'asset/inline',
+      },
     ]
   },
   output: {
